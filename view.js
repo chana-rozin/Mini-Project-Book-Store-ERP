@@ -8,8 +8,8 @@ function renderBooks(books) {
 function renderBookInList(book) {
     return `<div class="book-in-list">
     <p class="book-id">${book.id}</p>
-    <p class="book-title">${book.title}</p>
-    <p class="book-price">${book.price}</p>
+    <p class="book-title" onclick="viewBook(${book.id})">${book.title}</p>
+    <p class="book-price">${book.price}$</p>
     <div class="actions-container">
     <p class="read-btn">Read</p>
     <p class="update-btn">Update</p>
@@ -18,15 +18,14 @@ function renderBookInList(book) {
     </div>`;
 }
 
-function renderBook(bookId) {
-    return `<div class="book-title id=${bookId}">
+function renderBook(book) {
+    return `<div class="book-title">${book.title}</div>
     <div class="book-view">
-    <img src=\`${book.imgUrl}\` alt="Book cover">
+    <img src=${book.imgUrl} alt="Book cover">
     <div class="book-details">
-    <p class="book-price">Price: ${book.price}</p>
+    <p class="book-price">Price: ${book.price}$</p>
     <p class="book-rate">Rate: 
-    <input type="number" max="5" min="0" step="1" value=${book.rate}/></p>
-    </div>
+    <input type="number" max="5" min="0" step="1" value='${book.rate}' onchange="updateBookRate(event,${book.id})"/></p>
     </div>`;
 
 }

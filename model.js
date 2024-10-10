@@ -39,35 +39,35 @@ const Gbooks = [
         title: "Design Patterns: Elements of Reusable Object-Oriented Software",
         price: 54.99,
         rate: 5,
-        imgUrl: "https://m.media-amazon.com/images/I/91P1aR7tVGL._AC_UY327_FMwebp_QL65_.jpg"
+        imgUrl: "https://m.media-amazon.com/images/I/51kuc24SxSL._AC_UY327_FMwebp_QL65_.jpg"
     },
     {
         id: 7,
         title: "Introduction to Algorithms",
         price: 79.99,
         rate: 5,
-        imgUrl: "https://m.media-amazon.com/images/I/81vJybG2YHL._AC_UY327_FMwebp_QL65_.jpg"
+        imgUrl: "https://m.media-amazon.com/images/I/71Fh6hDqAtL._AC_UY327_FMwebp_QL65_.jpg"
     },
     {
         id: 8,
         title: "Refactoring: Improving the Design of Existing Code",
         price: 45.99,
         rate: 5,
-        imgUrl: "https://m.media-amazon.com/images/I/51kL7mKEziL._AC_UY327_FMwebp_QL65_.jpg"
+        imgUrl: "https://m.media-amazon.com/images/I/41+N6chblcL._AC_UY327_FMwebp_QL65_.jpg"
     },
     {
         id: 9,
         title: "The Mythical Man-Month: Essays on Software Engineering",
         price: 39.99,
         rate: 4,
-        imgUrl: "https://m.media-amazon.com/images/I/41MxsBDgZDL._AC_UY327_FMwebp_QL65_.jpg"
+        imgUrl: "https://m.media-amazon.com/images/I/51kNtlWx5lL._AC_UY327_FMwebp_QL65_.jpg"
     },
     {
         id: 10,
         title: "Code Complete: A Practical Handbook of Software Construction",
         price: 49.99,
         rate: 5,
-        imgUrl: "https://m.media-amazon.com/images/I/51-SZ8aLHoL._AC_UY327_FMwebp_QL65_.jpg"
+        imgUrl: "https://m.media-amazon.com/images/I/81b9Bw3W-jL._AC_UY327_FMwebp_QL65_.jpg"
     }
 ];
 
