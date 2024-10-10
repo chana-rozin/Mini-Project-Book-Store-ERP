@@ -11,7 +11,7 @@ function renderBookInList(book) {
     <p class="book-title" onclick="viewBook(${book.id})">${book.title}</p>
     <p class="book-price">${book.price}$</p>
     <div class="actions-container">
-    <p class="read-btn">Read</p>
+    <p class="read-btn" onclick="viewBook(${book.id})">Read</p>
     <p class="update-btn">Update</p>
     <p class="delete-btn" onclick="deleteBook(${book.id})">Delete</p>
     </div>
