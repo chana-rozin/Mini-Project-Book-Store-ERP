@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -11,13 +12,25 @@
 
     </header>
     <div class="controller">
-        <button class="new-book-btn" onclick="addNewBook()">+ New book</button>
+        <button class="new-book-btn" onclick="newBookPopup()">+ New book</button>
         <button class="load-data-btn" onclick="loadInitialData()">Load data</button>
     </div>
     <div class="container">
             <div class="books-list"></div>
             <div class="book-area"></div>
     </div>
+    <form class="new-book-popup hidden" onsubmit="addNewBook(event)">
+        <h2>Add new book</h2>
+        <input type="text" name="title" placeholder="Title" required>
+        <label for="price">Price</label>
+        <input type="number" name="price" placeholder="0" required>
+        <label for="rate">Rate</label>
+        <input type="number" name="rate" value="0" max="5" min="0" step="1" required>
+        <label for="imgUrl">Cover image url:</label>
+        <input type="url" name="imgUrl" placeholder="url">
+        <button type="submit">Add book</button>
+        <i class="fa-solid fa-x" onclick="closeNewBookPopup()"></i>
+    </form>
 </body>
 <script src="model.js"></script>
 <script src="view.js"></script>

@@ -45,3 +45,15 @@ body{
     justify-content: space-around;
     align-items: center;
 }
+
+.new-book-popup{
+    display: flex;
+}
+
+.hidden{
+    display: none;
+}
+
+.visible-flex{
+    display: flex;
+}

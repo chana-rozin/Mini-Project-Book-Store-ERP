@@ -1,11 +1,11 @@
 console.log('controller');
 
-const renderBooks = (books) =>{
+const renderBooks = (books) => {
     const booksEl = books.map(getHtmlBookInListElement).join('');
     document.getElementsByClassName('books-list')[0].innerHTML = booksEl;
 }
 
-const getHtmlBookInListElement = (book) =>{
+const getHtmlBookInListElement = (book) => {
     return `<div class="book-in-list">
     <p class="book-id">${book.id}</p>
     <p class="book-title" onclick="showBookDetails(${book.id})">${book.title}</p>
@@ -18,10 +18,10 @@ const getHtmlBookInListElement = (book) =>{
     </div>`;
 }
 
-const getHtmlBookElement = (book) =>{
+const getHtmlBookElement = (book) => {
     return `<div class="book-title">${book.title}</div>
     <div class="book-view">
-    <img src=${book.imgUrl} alt="Book cover">
+    <img src=${book.imgUrl || 'https://img.icons8.com/?size=100&id=11561&format=png&color=000000'} alt="Book cover">
     <div class="book-details">
     <p class="book-price">Price: ${book.price}$</p>
     <p class="book-rate">Rate: 
@@ -30,7 +30,13 @@ const getHtmlBookElement = (book) =>{
 
 }
 
-const renderBookDetails = (id)=>{
+const renderBookDetails = (id) => {
     const book = GdynamicBooks.find(book => book.id === id);
-    document.getElementsByClassName('book-area')[0].innerHTML = book?getHtmlBookElement(book):"";
+    document.getElementsByClassName('book-area')[0].innerHTML = book ? getHtmlBookElement(book) : "";
+}
+
+const renderNewBookForm = (visible) => {
+    console.log('renderNewBookForm', visible);
+    document.getElementsByClassName('new-book-popup')[0].classList.remove(visible ? 'hidden' : 'visible-flex');
+    document.getElementsByClassName('new-book-popup')[0].classList.add(visible ? 'visible-flex' : 'hidden');
 }
