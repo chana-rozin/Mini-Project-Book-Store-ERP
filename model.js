@@ -74,3 +74,7 @@ const Gbooks = [
 console.log("dump",Gbooks);
 
 let GdynamicBooks = []
+
+let runnerId;
+
+let GcurrentBookId;

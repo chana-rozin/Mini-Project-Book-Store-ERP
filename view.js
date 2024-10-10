@@ -1,24 +1,24 @@
 console.log('controller');
 
-function renderBooks(books) {
-    const booksEl = books.map(renderBookInList).join('');
+const renderBooks = (books) =>{
+    const booksEl = books.map(getHtmlBookInListElement).join('');
     document.getElementsByClassName('books-list')[0].innerHTML = booksEl;
 }
 
-function renderBookInList(book) {
+const getHtmlBookInListElement = (book) =>{
     return `<div class="book-in-list">
     <p class="book-id">${book.id}</p>
-    <p class="book-title" onclick="viewBook(${book.id})">${book.title}</p>
+    <p class="book-title" onclick="showBookDetails(${book.id})">${book.title}</p>
     <p class="book-price">${book.price}$</p>
     <div class="actions-container">
-    <p class="read-btn" onclick="viewBook(${book.id})">Read</p>
+    <p class="read-btn" onclick="showBookDetails(${book.id})">Read</p>
     <p class="update-btn">Update</p>
     <p class="delete-btn" onclick="deleteBook(${book.id})">Delete</p>
     </div>
     </div>`;
 }
 
-function renderBook(book) {
+const getHtmlBookElement = (book) =>{
     return `<div class="book-title">${book.title}</div>
     <div class="book-view">
     <img src=${book.imgUrl} alt="Book cover">
@@ -30,7 +30,7 @@ function renderBook(book) {
 
 }
 
-function viewBook(id){
+const renderBookDetails = (id)=>{
     const book = GdynamicBooks.find(book => book.id === id);
-    document.getElementsByClassName('book-area')[0].innerHTML = renderBook(book);
+    document.getElementsByClassName('book-area')[0].innerHTML = book?getHtmlBookElement(book):"";
 }
