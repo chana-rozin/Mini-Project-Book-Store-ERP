@@ -73,4 +73,4 @@ const Gbooks = [
 
 console.log("dump",Gbooks);
 
-const GdynamicBooks = []
+let GdynamicBooks = []
