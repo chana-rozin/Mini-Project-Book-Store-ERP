@@ -13,7 +13,7 @@ function renderBookInList(book) {
     <div class="actions-container">
     <p class="read-btn">Read</p>
     <p class="update-btn">Update</p>
-    <p class="delete-btn">Delete</p>
+    <p class="delete-btn" onclick="deleteBook(${book.id})">Delete</p>
     </div>
     </div>`;
 }

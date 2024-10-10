@@ -31,4 +31,10 @@ function updateBookRate(ev,id){
 }
 
 
+function deleteBook(id){
+    GdynamicBooks = GdynamicBooks.filter(book => book.id!== id);
+    localStorage.setItem('books', JSON.stringify(GdynamicBooks));
+    renderBooks(GdynamicBooks);
+}
+
 main();
