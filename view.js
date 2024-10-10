@@ -29,3 +29,8 @@ function renderBook(book) {
     </div>`;
 
 }
+
+function viewBook(id){
+    const book = GdynamicBooks.find(book => book.id === id);
+    document.getElementsByClassName('book-area')[0].innerHTML = renderBook(book);
+}

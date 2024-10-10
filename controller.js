@@ -20,11 +20,6 @@ function loadInitialData(){
     renderBooks(GdynamicBooks);
 }
 
-function viewBook(id){
-    const book = GdynamicBooks.find(book => book.id === id);
-    document.getElementsByClassName('book-area')[0].innerHTML = renderBook(book);
-}
-
 function updateBookRate(ev,id){
     GdynamicBooks = GdynamicBooks.map(b => b.id === id? {...b,rate: ev.target.value} : b);
     localStorage.setItem('books', JSON.stringify(GdynamicBooks));
@@ -36,5 +31,7 @@ function deleteBook(id){
     localStorage.setItem('books', JSON.stringify(GdynamicBooks));
     renderBooks(GdynamicBooks);
 }
+
+
 
 main();
