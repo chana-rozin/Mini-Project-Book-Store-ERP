@@ -9,4 +9,13 @@ function getBooks() {
     return GdynamicBooks;
 }
 
+function addNewBook(){
+
+}
+
+function loadInitialData(){
+    GdynamicBooks = Gbooks;
+    renderBooks(GdynamicBooks);
+}
+
 main();
