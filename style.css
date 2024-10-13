@@ -176,6 +176,7 @@ input[type="number"]::-webkit-outer-spin-button {
     grid-template-columns: 0.5fr 3fr 1fr 2fr;
     gap: 1rem;
     padding: 0 15px;
+    align-items: center;
 }
 
 .sort.by-title {

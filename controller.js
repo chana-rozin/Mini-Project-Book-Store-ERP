@@ -42,6 +42,7 @@ const addNewBook = (ev) => {
     localStorage.setItem('books', JSON.stringify(GdynamicBooks));
     renderBooks(getCurrentPageEl());
     renderPaging(getNumOfPages(), GCurrentPage);
+    ev.target.reset();
     closeNewBookPopup();
 }
 

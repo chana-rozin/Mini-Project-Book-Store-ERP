@@ -1,6 +1,6 @@
 const translations = {
     en: {
-        title: "BOOKS ERP",
+        webTitle: "BOOKS ERP",
         newBook: "+ New book",
         loadData: "Load data",
         addNewBook: "Add new book",
@@ -10,9 +10,12 @@ const translations = {
         addBook: "Add book",
         read: "Read",
         save: "Save",
+        title: "Title",
+        action: "Action",
+        id: "Id",
     },
     he: {
-        title: "ספרים ERP",
+        webTitle: "ספרים ERP",
         newBook: "+ ספר חדש",
         loadData: "טען נתונים",
         addNewBook: "הוסף ספר חדש",
@@ -22,6 +25,9 @@ const translations = {
         addBook: "הוסף ספר",
         read: "קרא",
         save: "שמור",
+        title: "כותרת",
+        action: "פעולות",
+        id: "מספר מזהה",
     }
 };
 
