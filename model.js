@@ -107,7 +107,7 @@ let runnerId;
 
 let GcurrentBookId;
 
-const GElPerPage = 10;
+const GElPerPage = 5;
 
 let GCurrentPage = 1;
 

@@ -12,50 +12,54 @@
 <body>
     <header>
         <h1 id="site-title" data-translate="title">BOOKS ERP</h1>
-        <div class="language-switch">
+    </header>
+    <div class="container">
+
+        <div class="controller">
             <button onclick="setLanguage('en')">English</button>
             <button onclick="setLanguage('he')">עברית</button>
+            <button class="new-book-btn" onclick="newBookPopup()" data-translate="newBook">+ New book</button>
+            <button class="load-data-btn" onclick="loadInitialData()" data-translate="loadData">Load data</button>
         </div>
-    </header>
-    
-    <div class="controller">
-        <button class="new-book-btn" onclick="newBookPopup()" data-translate="newBook">+ New book</button>
-        <button class="load-data-btn" onclick="loadInitialData()" data-translate="loadData">Load data</button>
-    </div>
 
-    <div class="container">
-        <div class="books-area">
-            <div class="sort-controller">
-                <div class="sort by-title">
-                    <i class="fa-solid fa-sort-up" onclick="sortBy('title')"></i>
-                    <i class="fa-solid fa-sort-down" onclick="sortBy('title', true)"></i>
+        <div class="main-content">
+            <div class="books-area">
+                <div class="sort-controller">
+                    <p>Id</p>
+                    <div class="sort by-title">
+                        <p>Title</p>
+                        <i class="fa-solid fa-sort-up" onclick="sortBy('title')"></i>
+                        <i class="fa-solid fa-sort-down" onclick="sortBy('title', true)"></i>
+                    </div>
+                    <div class="sort by-price">
+                        <p>Price</p>
+                        <i class="fa-solid fa-sort-up" onclick="sortBy('price')"></i>
+                        <i class="fa-solid fa-sort-down" onclick="sortBy('price', true)"></i>
+                    </div>
+                    <p>Action</p>
                 </div>
-                <div class="sort by-price">
-                    <i class="fa-solid fa-sort-up" onclick="sortBy('price')"></i>
-                    <i class="fa-solid fa-sort-down" onclick="sortBy('price', true)"></i>
-                </div>
+                <div class="books-list"></div>
+                <div class="pagination-controller"></div>
             </div>
-            <div class="books-list"></div>
-            <div class="pagination-controller"></div>
+            <div class="book-area"></div>
         </div>
-        <div class="book-area"></div>
+
+        <div class="editor-container"></div>
+
+        <form class="popup new-book hidden" onsubmit="addNewBook(event)">
+            <h2 data-translate="addNewBook">Add new book</h2>
+            <input type="text" name="title" placeholder="Title" required>
+            <label for="price" data-translate="price">Price</label>
+            <input type="number" name="price" placeholder="0" required>
+            <label for="rate" data-translate="rate">Rate</label>
+            <input type="number" name="rate" value="0" max="5" min="0" step="1" required>
+            <label for="imgUrl" data-translate="coverImageUrl">Cover image url:</label>
+            <input type="url" name="imgUrl" placeholder="url">
+            <button type="submit" data-translate="addBook">Add book</button>
+            <i class="fa-solid fa-x" onclick="closeNewBookPopup()"></i>
+        </form>
     </div>
 
-    <div class="editor-container"></div>
-
-    <form class="popup new-book hidden" onsubmit="addNewBook(event)">
-        <h2 data-translate="addNewBook">Add new book</h2>
-        <input type="text" name="title" placeholder="Title" required>
-        <label for="price" data-translate="price">Price</label>
-        <input type="number" name="price" placeholder="0" required>
-        <label for="rate" data-translate="rate">Rate</label>
-        <input type="number" name="rate" value="0" max="5" min="0" step="1" required>
-        <label for="imgUrl" data-translate="coverImageUrl">Cover image url:</label>
-        <input type="url" name="imgUrl" placeholder="url">
-        <button type="submit" data-translate="addBook">Add book</button>
-        <i class="fa-solid fa-x" onclick="closeNewBookPopup()"></i>
-    </form>
-    
 </body>
 
 <script src="model.js"></script>
