@@ -40,9 +40,9 @@ const getHtmlBookElement = (book) => {
     <div class="book-view">
         <img src=${book.imgUrl || 'https://img.icons8.com/?size=100&id=11561&format=png&color=000000'} alt="Book cover">
         <div class="book-details">
-            <p class="book-price" data-translate="price">${GCurrentLanguage=='en'?'Price:':':מחיר'}</p>
+            <p class="book-price" data-translate="price">${GCurrentLanguage=='en'?'Price:':'מחיר:'}</p>
             <p class="book-price" >${book.price}$</p>
-            <p class="book-rate" data-translate="rate">${GCurrentLanguage=='en'?'Rate:':':דירוג'}</p>
+            <p class="book-rate" data-translate="rate">${GCurrentLanguage=='en'?'Rate:':'דירוג:'}</p>
             <p class="book-rate">
                 <input type="number" max="5" min="0" step="1" value='${book.rate}' onchange="updateBookRate(event,${book.id})"/>
             </p>

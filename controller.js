@@ -73,6 +73,7 @@ const showBookDetails = (id) => {
     GcurrentBookId = id;
 }
 
+
 const updateBookRate = (ev, id) => {
     GdynamicBooks = GdynamicBooks.map(b => b.id === id ? { ...b, rate: ev.target.value } : b);
     localStorage.setItem('books', JSON.stringify(GdynamicBooks));
@@ -86,7 +87,8 @@ const deleteBook = (id) => {
         GcurrentBookId = 0;
         renderBookDetails(GcurrentBookId);
     }
-
+    if(getCurrentPageEl().length === 0)
+        GCurrentPage = 1;
     renderBooks(getCurrentPageEl());
     renderPaging(getNumOfPages(), GCurrentPage);
 }

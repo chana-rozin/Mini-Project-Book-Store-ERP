@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+.he{
+    direction: rtl;
+}
+
+.en{
+    direction: ltr;
+}
+
 body{
     display: flex;
     flex-direction: column;
