@@ -78,3 +78,7 @@ let GdynamicBooks = []
 let runnerId;
 
 let GcurrentBookId;
+
+const GElPerPage = 10;
+
+let GCurrentPage = 1;

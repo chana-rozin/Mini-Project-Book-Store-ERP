@@ -5,6 +5,22 @@ const renderBooks = (books) => {
     document.getElementsByClassName('books-list')[0].innerHTML = booksEl;
 }
 
+const renderPaging = (numOfPages, currentPage) => {
+    console.log('render paging', numOfPages, currentPage);
+    let pageBtnsEl = '';
+    for (let i = 1; i <= numOfPages; i++)
+    {
+        pageBtnsEl += getPageBtnHtmlEl(i, currentPage===i);
+        console.log('btnPage', getPageBtnHtmlEl(i, currentPage===i));
+    }
+    console.log('pageBtnsEl:', pageBtnsEl);
+    document.getElementsByClassName('pagination-controller')[0].innerHTML = pageBtnsEl;
+}
+
+const getPageBtnHtmlEl = (page, emphasis) => {
+    return `<div class="page-btn ${emphasis? 'currentPage':''}" onclick="changePage(${page})">${page}</div>`;
+}
+
 const getHtmlBookInListElement = (book) => {
     return `<div class="book-in-list">
     <p class="book-id">${book.id}</p>
@@ -40,3 +56,4 @@ const renderNewBookForm = (visible) => {
     document.getElementsByClassName('new-book-popup')[0].classList.remove(visible ? 'hidden' : 'visible-flex');
     document.getElementsByClassName('new-book-popup')[0].classList.add(visible ? 'visible-flex' : 'hidden');
 }
+

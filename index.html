@@ -16,8 +16,21 @@
         <button class="load-data-btn" onclick="loadInitialData()">Load data</button>
     </div>
     <div class="container">
+        <div class="books-area">
+            <div class="sort-controller">
+                <div class="sort by-title">
+                    <i class="fa-solid fa-sort-up" onclick="sortBy('title')"></i>
+                    <i class="fa-solid fa-sort-down" onclick="sortBy('title', true)"></i>
+                </div>
+                <div class=" sort by-price">
+                    <i class="fa-solid fa-sort-up" onclick="sortBy('price')"></i>
+                    <i class="fa-solid fa-sort-down" onclick="sortBy('price', true)"></i>
+                </div>
+            </div>
             <div class="books-list"></div>
-            <div class="book-area"></div>
+            <div class="pagination-controller"></div>
+        </div>
+        <div class="book-area"></div>
     </div>
     <form class="new-book-popup hidden" onsubmit="addNewBook(event)">
         <h2>Add new book</h2>

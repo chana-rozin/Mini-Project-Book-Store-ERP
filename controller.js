@@ -1,15 +1,15 @@
 const main = () => {
     console.log('App started...');
-    const books = getBooks();
-    renderBooks(books);
+    initDynamicBooks();
+    renderBooks(getCurrentPageEl());
+    renderPaging(getNumOfPages(), GCurrentPage);
     runnerId = parseInt(localStorage.getItem('runnerId') || '11');
 }
 
-const getBooks = () => {
+const initDynamicBooks = () => {
     const localStorageData = JSON.parse(localStorage.getItem('books'));
     GdynamicBooks = localStorageData ? localStorageData : GdynamicBooks.length ? GdynamicBooks : Gbooks;
     localStorage.setItem('books', JSON.stringify(GdynamicBooks));
-    return GdynamicBooks;
 }
 
 const newBookPopup = () => {
@@ -33,13 +33,15 @@ const saveBook = (book) => {
     GdynamicBooks.push(book);
     console.log('New book added:', book);
     localStorage.setItem('books', JSON.stringify(GdynamicBooks));
-    renderBooks(GdynamicBooks);
+    renderBooks(getCurrentPageEl());
+    renderPaging(getNumOfPages(), GCurrentPage);
 }
 
 const loadInitialData = () => {
     GdynamicBooks = Gbooks;
     localStorage.setItem('books', JSON.stringify(GdynamicBooks));
-    renderBooks(GdynamicBooks);
+    renderBooks(getCurrentPageEl());
+    renderPaging(getNumOfPages(), GCurrentPage);
 }
 
 const showBookDetails = (id) => {
@@ -61,9 +63,38 @@ const deleteBook = (id) => {
         renderBookDetails(GcurrentBookId);
     }
 
-    renderBooks(GdynamicBooks);
+    renderBooks(getCurrentPageEl());
+    renderPaging(getNumOfPages(), GCurrentPage);
 }
 
+function sortBy(filter, reverse = false) {
+    switch (filter) {
+        case 'title': {
+            GdynamicBooks.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+        }
+        case 'price': {
+            GdynamicBooks.sort((a, b) => b.price - a.price);
+            break;
+        }
+        default:
+            break;
+    }
+    if (reverse) GdynamicBooks.reverse();
+    renderBooks(getCurrentPageEl());
 
+}
+
+const changePage = (pageNumber) => {
+    GCurrentPage = pageNumber;
+    renderBooks(getCurrentPageEl());
+    renderPaging(getNumOfPages(), GCurrentPage);
+}
+
+const getCurrentPageEl = () => {
+    return GdynamicBooks.slice((GCurrentPage - 1) * GElPerPage, GCurrentPage * GElPerPage)
+}
+
+const getNumOfPages = () => Math.ceil(GdynamicBooks.length / GElPerPage);
 
 main();
