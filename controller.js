@@ -6,6 +6,18 @@ const main = () => {
     runnerId = parseInt(localStorage.getItem('runnerId') || '11');
 }
 
+function setLanguage(lang) {
+    GCurrentLanguage = lang;
+    const elements = document.querySelectorAll("[data-translate]");
+    elements.forEach((el) => {
+        const key = el.getAttribute("data-translate");
+        el.textContent = translations[lang][key];
+    });
+    document.documentElement.classList.add(lang);
+    document.documentElement.classList.remove(lang=='en' ? 'he' : 'en');
+
+}
+
 const initDynamicBooks = () => {
     const localStorageData = JSON.parse(localStorage.getItem('books'));
     GdynamicBooks = localStorageData ? localStorageData : GdynamicBooks.length ? GdynamicBooks : Gbooks;
@@ -25,16 +37,28 @@ const addNewBook = (ev) => {
     const values = new FormData(ev.target);
     const book = { id: runnerId++, ...Object.fromEntries(values.entries()) };
     localStorage.setItem('runnerId', runnerId);
-    saveBook(book);
-    closeNewBookPopup();
-}
-
-const saveBook = (book) => {
     GdynamicBooks.push(book);
     console.log('New book added:', book);
     localStorage.setItem('books', JSON.stringify(GdynamicBooks));
     renderBooks(getCurrentPageEl());
     renderPaging(getNumOfPages(), GCurrentPage);
+    closeNewBookPopup();
+}
+
+const saveBook = (ev, id) => {
+    ev.preventDefault();
+    renderEditBookToEmpty();
+    const values = new FormData(ev.target);
+    const book = {id,...Object.fromEntries(values.entries()) };
+    console.log('Book updated:', book);
+    GdynamicBooks = GdynamicBooks.map(b => b.id === id? book : b);
+    localStorage.setItem('books', JSON.stringify(GdynamicBooks));
+    renderBooks(getCurrentPageEl());
+}
+
+const editBook =(id) => {
+    console.log('Edit book:', id);
+    renderEditBookForm(GdynamicBooks.find(b => b.id === id));
 }
 
 const loadInitialData = () => {

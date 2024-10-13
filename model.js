@@ -1,3 +1,31 @@
+const translations = {
+    en: {
+        title: "BOOKS ERP",
+        newBook: "+ New book",
+        loadData: "Load data",
+        addNewBook: "Add new book",
+        price: "Price",
+        rate: "Rate",
+        coverImageUrl: "Cover image url",
+        addBook: "Add book",
+        read: "Read",
+        save: "Save",
+    },
+    he: {
+        title: "ספרים ERP",
+        newBook: "+ ספר חדש",
+        loadData: "טען נתונים",
+        addNewBook: "הוסף ספר חדש",
+        price: "מחיר",
+        rate: "דירוג",
+        coverImageUrl: "כתובת תמונה",
+        addBook: "הוסף ספר",
+        read: "קרא",
+        save: "שמור",
+    }
+};
+
+
 const Gbooks = [
     {
         id: 1,
@@ -82,3 +110,5 @@ let GcurrentBookId;
 const GElPerPage = 10;
 
 let GCurrentPage = 1;
+
+let GCurrentLanguage = 'en';

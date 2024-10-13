@@ -83,15 +83,8 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
 }
 
-.hidden{
-    display: none;
-}
-
-.visible-flex{
+.popup{
     display: flex;
-}
-
-.new-book-popup{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -106,21 +99,29 @@ input[type="number"]::-webkit-outer-spin-button {
     height: auto;
 }
 
-.new-book-popup .fa-x{
+.popup .fa-x{
     position: fixed;
     right: 50%;
     top: 30px;
 }
 
-.new-book-popup .fa-x:hover{
+.popup .fa-x:hover{
     cursor: pointer;
     color: red;
 }
 
-.new-book-popup input, .new-book-popup button{
+.popup input, .popup button{
     padding: 10px;
     margin: 10%;
     border: none;
+}
+
+.hidden{
+    display: none;
+}
+
+.visible-flex{
+    display: flex;
 }
 
 .sort-controller {
