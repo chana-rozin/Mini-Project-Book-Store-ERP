@@ -55,6 +55,9 @@ const saveBook = (ev, id) => {
     GdynamicBooks = GdynamicBooks.map(b => b.id === id? book : b);
     localStorage.setItem('books', JSON.stringify(GdynamicBooks));
     renderBooks(getCurrentPageEl());
+    if(GcurrentBookId === id){
+        renderBookDetails(id);
+    }
 }
 
 const editBook =(id) => {
